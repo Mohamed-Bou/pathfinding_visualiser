@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <style>
+    .grid {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: 1px solid #000;
+    display: inline-block;
+    }
+    </style>
+</head>
+<body>
+    <canvas id='canvas'>
+    </canvas>
+    <div id="container"></div>
+    <div id="controle">
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <button type="button" class="btn btn-primary" id='startpoint'>chose start</button>
+            <button type="button" class="btn btn-danger"id='endp'>chose end </button>
+            <button type="button" class="btn btn-primary"id='choosewall'>chose walls </button>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Algorithme
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="algo">
+                <button class="dropdown-item" id="bfs">Bfs</button>
+                <button class="dropdown-item" id="a_star">A*</button>
+                <button class="dropdown-item" id="dijkstra">Dijkstra</button>
+                <button class="dropdown-item" id="bi_bfs">bi_bfs</button>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary"id='startvis'>start visualisation  </button>
+            <button type="button" class="btn btn-primary"id='refrech'>refrech </button>
+          </div> 
+
+    </div>
+    <script src="util.js" charset="tf-8"></script> 
+    <script src="main.js" charset="tf-8"></script>
+    <script src="algs.js" charset="tf-8"></script>
+
+
+    
+</body>
+</html>
