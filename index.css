@@ -24,3 +24,18 @@ body{
 .btn{
     height: 60px;
 }
+#note{
+    visibility:hidden;
+}
+
+@media only screen and (max-width: 1200px) {
+    #note{
+        visibility:visible;
+    }
+    #canvas{
+        visibility:hidden;
+    }
+    #controle{
+        visibility:hidden;
+    }
+ } 
