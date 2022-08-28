@@ -33,20 +33,20 @@ function bfs(startnode,endnode,graph1){
             }        
         }
         // when we found the path the animation stop
-        if(path.length==0){
-            requestAnimationFrame(update);
-            if (queue.length==0 && isdisplyed==false){
+        if(path.length!=0){
+            draw_the_Path(path);
+            drawrec(endnode.i,endnode.j,"red");
+            clearInterval(id);
+        }
+        if (queue.length==0 && isdisplyed==false){
                 alert("path not found");
                 isdisplyed=true;
-            }
-        }else{
-         draw_the_Path(path);
-         drawrec(endnode.i,endnode.j,"red");
-
+                clearInterval(id);
         }
         
     }
-    update();
+    let speed=10;
+    var id=setInterval(update,speed);
  }
 
 function index(v,node){
@@ -58,8 +58,7 @@ function index(v,node){
  // bi_bfs alg
  function bi_bfs(startnode,endnode,graph1){
     let path=[];
-    let path1=[];
-    let isdisplyed=false;    // "path not found" s'il n'est pas de chemin de start a end.
+    let isdisplyed=false;    
     const queue=[startnode];
     const queue1=[endnode];
     function update(){
@@ -109,18 +108,19 @@ function index(v,node){
                 }  
         }
         // when we found the path the animation stop
-        if(path.length==0){
-            requestAnimationFrame(update);
-            if (queue.length==0 && isdisplyed==false){
+        if(path.length!=0){
+            draw_the_Path(path);
+            clearInterval(id);
+
+        }
+        if (queue.length==0 && queue1.length==0&& isdisplyed==false){
                 alert("path not found");
                 isdisplyed=true;
-            }
-        }else{
-         draw_the_Path(path);
-        // draw_the_Path(path1);
+                clearInterval(id);
         }
+        
     }
-    update();
+    let id=setInterval(update,10);
  }
 
  function dijikstra(startnode,endnode,graph){
@@ -161,18 +161,18 @@ function index(v,node){
             }
          }
          // when we found the path the animation stop
-        if(path.length==0){
-            requestAnimationFrame(update);
-            if (q.length==0 && isdisplyed==false){
+         if(path.length!=0){
+            draw_the_Path(path);
+            clearInterval(id);
+        }
+        if (q.length==0 && isdisplyed==false){
                 alert("path not found");
                 isdisplyed=true;
-            }
-        }else{
-            draw_the_Path(path);
-            drawrec(endnode.i,endnode.j,"red");
+                clearInterval(id);
         }
      }
-     update();
+     let speed=10;
+    let id=setInterval(update,speed);
  }
 
  // A* alg
@@ -221,18 +221,17 @@ function index(v,node){
             }
         }
         // when we found the path the animation stop
-        if(path.length==0){
-            requestAnimationFrame(update);
-            if (openList.length==0 && isdisplyed==false){
+        if(path.length!=0){
+            draw_the_Path(path);
+            clearInterval(id);
+        }
+        if (openList.length==0 && isdisplyed==false){
                 alert("path not found");
                 isdisplyed=true;
-            }
-        }else{
-            draw_the_Path(path);
-            drawrec(endnode.i,endnode.j,"red");
+                clearInterval(id);
         }
     }
-    update();
+    let id=setInterval(update,10);
 
 
  }

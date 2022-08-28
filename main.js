@@ -93,17 +93,20 @@ function clear_previous_vis(graph){
         for(let j=0;j<graph.ncolomns;j++){
             if (!graph.Nodes[i][j].isblocked){
                 if((graph.Nodes[i][j].j!=start[1] || graph.Nodes[i][j].i!=start[0]) && (graph.Nodes[i][j].j!=end[1] || graph.Nodes[i][j].i!=end[0])){
-                    graph.Nodes[i][j].parent=null;
-                    graph.Nodes[i][j].isvisited=false;
                     drawrec(i,j,"rgb(194, 212, 206)");
                 }
-                else{
-                    graph.Nodes[i][j].parent=null;
-                    graph.Nodes[i][j].isvisited=false;
-
+                else if(graph.Nodes[i][j].j==start[1] && graph.Nodes[i][j].i==start[0]){
+                    drawrec(i,j,"green");
+                }else{
+                    drawrec(i,j,"red");
                 }
                 
             }
+            graph.Nodes[i][j].parent=null;
+            graph.Nodes[i][j].isvisited=false;
+            graph.Nodes[i][j].distanceFromStart=Infinity;
+            graph.Nodes[i][j].f=Infinity;
+            graph.Nodes[i][j].g=Infinity;
         }
     }
 }
@@ -115,7 +118,7 @@ $("#dijkstra").click(function(){
 })
 $("#bfs").click(function(){
     clear_previous_vis(graph1);
-    algorithme="bfs";
+    alg="bfs";
 })
 $("#a_star").click(function(){
     clear_previous_vis(graph1);
@@ -126,13 +129,10 @@ $("#bi_bfs").click(function(){
     alg="bi_bfs";
 })
 
+
 ///// start visualisation 
-function abs(a){
-    if(a>=0) return(a);
-    return(-a);
-}
+
 $("#startvis").click(function(){  
-    console.log(alg);  
     const startnode=graph1.Nodes[start[0]][start[1]];
     const endnode=graph1.Nodes[end[0]][end[1]];
     if (alg=="bfs"){
